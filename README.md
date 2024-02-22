@@ -1,1 +1,0 @@
-# yyqeternal.github.io
