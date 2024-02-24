@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>🏖 生活 on Blog</title>
     <link>https://yyqeternal.github.io/post/life/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content in 🏖 生活 on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh</language>
+    <lastBuildDate>Thu, 05 May 2022 00:18:15 +0800</lastBuildDate>
     <atom:link href="https://yyqeternal.github.io/post/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Life</title>
+      <link>https://yyqeternal.github.io/life/</link>
+      <pubDate>Thu, 05 May 2022 00:18:15 +0800</pubDate>
+      <guid>https://yyqeternal.github.io/life/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>人生经验</title>
+      <link>https://yyqeternal.github.io/%E4%BA%BA%E7%94%9F%E7%BB%8F%E9%AA%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yyqeternal.github.io/%E4%BA%BA%E7%94%9F%E7%BB%8F%E9%AA%8C/</guid>
+      <description>程序员最大的悲哀是什么？直达问题 dboy 这个繁荣的行业，只要你自己不水，可以衣食无忧，努努力还能光环加成，成为别人眼里很酷的那种人，没多少行业如程序员起薪高，也没多少行业如程序员涨薪快，没多少行业如程序员这般智力密集，身边都是挺聪明的人，有的还很有趣，也没多少职场如程序员职场这般少讲政</description>
+    </item>
   </channel>
 </rss>

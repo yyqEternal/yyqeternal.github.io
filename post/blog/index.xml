@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>🧱 建站 on Blog</title>
     <link>https://yyqeternal.github.io/post/blog/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content in 🧱 建站 on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh</language>
+    <lastBuildDate>Thu, 05 May 2022 00:18:23 +0800</lastBuildDate>
     <atom:link href="https://yyqeternal.github.io/post/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://yyqeternal.github.io/blog/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      <guid>https://yyqeternal.github.io/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>教程</title>
+      <link>https://yyqeternal.github.io/%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yyqeternal.github.io/%E6%95%99%E7%A8%8B/</guid>
+      <description>利用GitHub Action实现Hugo博客在GitHub Pages自动部署 建站第十一篇 Hugo+Github Pages+Github Action博客方案之三——配置Github Action实现自动发布 《Hugo + GitHub Action，搭建你的博客自动发布系统》，https://www.pseudoyu.com/zh/2022</description>
+    </item>
+    <item>
+      <title>如何用 GitHub Pages &#43; Hugo 搭建个人博客</title>
+      <link>https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages--hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages--hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>如何用 GitHub Pages + Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。 Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。 Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文</description>
+    </item>
+    <item>
+      <title>三分钟建站</title>
+      <link>https://yyqeternal.github.io/%E4%B8%89%E5%88%86%E9%92%9F%E5%BB%BA%E7%AB%99/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yyqeternal.github.io/%E4%B8%89%E5%88%86%E9%92%9F%E5%BB%BA%E7%AB%99/</guid>
+      <description>如何用 GitHub Pages + Hugo 搭建个人博客 1.1 什么是 GitHub Pages？ Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页面的静态站点托管服务。 Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、Python 或者 Ruby。 1.2 什么是 Hugo？ Hugo 是用 Go 语言写的静态网站生成器（Stat</description>
+    </item>
   </channel>
 </rss>
