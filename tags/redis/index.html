@@ -168,6 +168,7 @@
   </header>
   <div class="entry-content">
     <p>1. 介绍 scan命令的作用和keys *的作用类似，主要用于查找redis中的键，但是在正式的生产环境中一般不会直接使用keys *这个命令，因为他会返回所有的键，如果键的数量很多会导致查询时间很长，进而导致服务器阻塞，所以需要scan来进行更细致的查找
+scan总共有这几种命令：scan、sscan、hscan、zscan，分别用于迭代数据库中的：数据库中所有键、集合键、哈希键、有序集合键，命令具体结构如下：
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2022-11-30 15:55:23 +0800 +0800'>2022-11-30</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YYQ</footer>

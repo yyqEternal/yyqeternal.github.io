@@ -9,7 +9,25 @@
 <meta name="keywords" content="">
 <meta name="description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
-面的静态站点托管服务。">
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。">
 <meta name="author" content="Recording">
 <link rel="canonical" href="https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages--hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -60,7 +78,25 @@ Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人�
 </noscript><meta property="og:title" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客" />
 <meta property="og:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
-面的静态站点托管服务。" />
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages--hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><meta property="article:section" content="post" />
 
@@ -70,7 +106,25 @@ Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人�
 <meta name="twitter:title" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客"/>
 <meta name="twitter:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
-面的静态站点托管服务。"/>
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。"/>
 
 
 <script type="application/ld+json">
@@ -105,7 +159,7 @@ Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人�
   "@type": "BlogPosting",
   "headline": "如何用 GitHub Pages + Hugo 搭建个人博客",
   "name": "如何用 GitHub Pages \u002b Hugo 搭建个人博客",
-  "description": "如何用 GitHub Pages + Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。\n",
+  "description": "如何用 GitHub Pages + Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。\nGithub Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。\nHugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。\n创建 2 个 GitHub 仓库 博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图 片等。 GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文 件。 将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓 库 中。 命名 博客源仓库 （whatever you want） 勾选 Pricate ，设置为公开仓库。 勾选添加 README 文件。 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo 中，但这样其他人能获取文章的源文件。\n",
   "keywords": [
     
   ],
