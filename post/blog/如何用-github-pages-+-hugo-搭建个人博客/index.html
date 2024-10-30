@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=2516&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>如何用 GitHub Pages &#43; Hugo 搭建个人博客 - Blog</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:2516/post/blog/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-&#43;-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+  <meta property="og:site_name" content="Blog">
+  <meta property="og:title" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客">
+  <meta property="og:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。
+创建 2 个 GitHub 仓库 博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图 片等。 GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文 件。 将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓 库 中。 命名 博客源仓库 （whatever you want） 勾选 Pricate ，设置为公开仓库。 勾选添加 README 文件。 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo 中，但这样其他人能获取文章的源文件。">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客">
+  <meta name="twitter:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。
+创建 2 个 GitHub 仓库 博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图 片等。 GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文 件。 将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓 库 中。 命名 博客源仓库 （whatever you want） 勾选 Pricate ，设置为公开仓库。 勾选添加 README 文件。 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo 中，但这样其他人能获取文章的源文件。">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:2516/post/blog/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-&#43;-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><link rel="prev" href="http://localhost:2516/post/blog/%E6%95%99%E7%A8%8B/" /><link rel="next" href="http://localhost:2516/post/blog/%E4%B8%89%E5%88%86%E9%92%9F%E5%BB%BA%E7%AB%99/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何用 GitHub Pages + Hugo 搭建个人博客",
+        "inLanguage": "zh",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:2516\/post\/blog\/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-\u002b-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/"
+        },"genre": "post","wordcount":  590 ,
+        "url": "http:\/\/localhost:2516\/post\/blog\/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-\u002b-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/post/first/" title="首页"> 首页 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/post/first/" title="首页">首页</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">如何用 GitHub Pages &#43; Hugo 搭建个人博客</h1><div class="content" id="content"><h2 id="如何用-github-pages--hugo-搭建个人博客httpskrislinzhaogithubiodocscreate-a-wesite-using-github-pages-and-hugo1-概念搭建思路和运行环境"><a href="https://krislinzhao.github.io/docs/create-a-wesite-using-github-pages-and-hugo/#1-%e6%a6%82%e5%bf%b5%e6%90%ad%e5%bb%ba%e6%80%9d%e8%b7%af%e5%92%8c%e8%bf%90%e8%a1%8c%e7%8e%af%e5%a2%83" target="_blank" rel="noopener noreffer ">如何用 GitHub Pages + Hugo 搭建个人博客</a></h2>
+<p>Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
+面的静态站点托管服务。</p>
+<p>Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。</p>
+<p>Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。</p>
+<ol>
+<li>创建 2 个 GitHub 仓库
+<strong>博客源仓库</strong> ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+<strong>GitHub Pages 仓库</strong> ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。</li>
+<li>将在 <strong>博客源仓库</strong> 中 Hugo 生成的静态 HTML 文件部署到远端 <strong>GitHub Pages 仓</strong>
+<strong>库</strong> 中。</li>
+<li>命名 <strong>博客源仓库</strong> （whatever you want）</li>
+<li>勾选 <strong>Pricate</strong> ，设置为公开仓库。</li>
+<li>勾选添加 <strong>README</strong> 文件。</li>
+</ol>
+<p>我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。</p>
+<ol>
+<li>命名 <strong>GitHub Pages</strong> 仓库，这个仓库必须使用特殊的命名格式
+<strong>&lt;username.github.io&gt;</strong> ， 是自己的 GitHub 的用户名。</li>
+<li>勾选 <strong>Public</strong> ，设置为公开仓库。</li>
+<li>勾选添加 <strong>README</strong> 文件，这会设置 <strong>main</strong> 分支为仓库的默认主分支，这在后
+面提交推送博客内容时很重要。</li>
+</ol>
+<h3 id="22-创建-github-page-仓库">2.2 创建 GitHub Page 仓库</h3>
+<ol>
+<li>打开想要在本地储存项目的文件夹（比如我的项目的文件夹是 <strong>project</strong> ）</li>
+</ol>
+<h4 id="2-克隆-博客源仓库-到项目文件夹克隆时使用的-https-仓库链接在这里查看">2. 克隆 博客源仓库 到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看：</h4>
+<h2 id="3-克隆博客源仓库到本地">3. 克隆博客源仓库到本地</h2>
+<pre tabindex="0"><code>cd project
+</code></pre><h4 id="1-进入刚刚克隆下来的-博客源仓库-文件夹比如我的博客源仓库文件夹名是">1. 进入刚刚克隆下来的 博客源仓库 文件夹（比如：我的博客源仓库文件夹名是</h4>
+<pre tabindex="0"><code>BlogSource ，则 cd BlogSource ），在这个文件夹里用 Hugo 创建一个网站文件
+夹。
+</code></pre><ol>
+<li>用 Hugo 创建网站文件夹的命令是 <strong>hugo new site</strong> 网站名字。(比如，我的命名是
+<strong>BlogSource</strong> )</li>
+</ol>
+<h4 id="我是直接创建在博客源码仓库中的">我是直接创建在博客源码仓库中的。</h4>
+<ol>
+<li>用 Hugo 创建的网站共有 7 个文件夹和 1 个文件，这些文件分别代表：</li>
+</ol>
+<pre tabindex="0"><code>archetypes ：存放用 hugo 命令新建的 Markdown 文件应用的 front
+matter 模版
+content ：存放内容页面，比如「博客」、「读书笔记」等
+layouts ：存放定义网站的样式，写在 layouts 文件下的样式会覆盖安装的主
+题中的 layouts 文件同名的样式
+static ：存放所有静态文件，如图片
+data ：存放创建站点时 Hugo 使用的其他数据
+public ：存放 Hugo 生成的静态网页
+themes ：存放主题文件
+config.toml ：网站配置文件
+git clone git@github.com:krislinzhao/BlogSource.git
+</code></pre><h2 id="4-使用-hugo-创建网站">4. 使用 Hugo 创建网站</h2>
+<pre tabindex="0"><code>cd BlogSource
+hugo new site BlogSource
+</code></pre><p>可以从 Hugo 社区提供的主题中选择一个喜欢的主题应用在自己的网站中。</p>
+<ol>
+<li>一般在你选择的 Hugo 主题的文档中，都会给出「如何安装这个主题」的命令，
+比如我选用的 <strong>BlowFish</strong> 的文档中给出：</li>
+<li>打开刚刚用 Hugo 创建的网站文件夹（我的是 BlogSource），在终端粘贴文档中
+给出的安装命令。</li>
+<li>这时可以看到在 <strong>themes</strong> 文件夹中，多出了刚刚安装的主题文件，代表主题安装成
+功。</li>
+</ol>
+<h2 id="5-安装和配置-hugo-主题">5. 安装和配置 Hugo 主题</h2>
+<h3 id="51-选择-hugo-主题">5.1 选择 Hugo 主题</h3>
+<h3 id="52-安装-hugo-主题">5.2 安装 Hugo 主题</h3>
+<pre tabindex="0"><code></code></pre><ol>
+<li>一般安装的 Hugo 主题的文件结构中都会有 <strong>exampleSite</strong> 文件夹，也是你在选择
+主题时参考的网站 demo。</li>
+<li><strong>把 exampleSite 的文件复制到站点目录，在此基础上进行基础配置</strong> 。 非常推荐这
+么做，这样做能解决很多「为什么明明跟教程一步一步做下来，显示的结果却不一
+样？」的疑惑。（这主要是因为不同的主题模版配置文件不同导致的。）</li>
+<li>在把 <strong>exampleSite</strong> 文件复制到站点目录时，请根据 <strong>对应</strong> 文件夹进行复制文件</li>
+</ol>
+<pre tabindex="0"><code>比如 exampleSite 下有 content , static 和 config.toml 3 个文件，就
+找到你自己的站点跟目录下这对应的三个文件。在把对应目录中的内容分别复
+制过去。
+</code></pre><ol>
+<li>其中在复制 <strong>config.toml</strong> 的内容时要注意：</li>
+</ol>
+<h3 id="53-配置-hugo-主题">5.3 配置 Hugo 主题</h3>
+<pre tabindex="0"><code>
+baseURL
+如果你没有在 GitHub Pages 中设置自定义域名，这里的域名应该填
+https://&lt;username&gt;.github.io/ （⚠ 注意：最后的 / 不要忘了加）
+themes
+在 config.toml 中输入这行命令才能启用安装的主题，不过一般这行命令在
+你复制 exampleSite 的配置文件信息时，主题作者已经写好了这行。
+</code></pre><p>用 Hugo 创建一篇文章的命令是:</p>
+<p>用这个命令创建的 Markdown 文件会套用 <strong>archetypes</strong> 文件夹中的 front matter 模
+版，在空白处用 Markdown 写入内容。</p>
+<p>其中， <strong>draft: true</strong> 代表这篇文章是一个草稿，Hugo 不会显示草稿，要在主页显示添
+加的文章，可以设置 <strong>draft: false</strong> ；或者直接删掉这行。</p>
+<h4 id="1-在发布到网站前可以在本地预览网站或内容的效果运行命令">1. 在发布到网站前可以在本地预览网站或内容的效果，运行命令：</h4>
+<ol>
+<li>也可以在本地编辑 Markdown 文件时，通过 <strong>hugo server</strong> 来实时预览显示效
+果。</li>
+<li><strong>hugo server</strong> 运行成功后，可以在 <strong>http://localhost:1313/</strong> 中预览网站</li>
+</ol>
+<p>使用Github Actions功能实现提交源码后自动发布。</p>
+<pre tabindex="0"><code> 
+baseURL = &#34;https://example.com/&#34; # 把 https://example.com/ 改成自己的域名
+themes = &#34;你选择的主题名字&#34;。 # 这一行命令代表启用你安装的主题
+</code></pre><h2 id="6-用-hugo-创建文章">6. 用 Hugo 创建文章</h2>
+<pre tabindex="0"><code>hugo new xxx.md
+</code></pre><h2 id="7-本地调试和预览">7. 本地调试和预览</h2>
+<pre tabindex="0"><code>hugo server
+</code></pre><h2 id="8-发布内容">8. 发布内容</h2>
+<h3 id="heading">↑</h3>
+<pre tabindex="0"><code></code></pre><ol>
+<li>
+<p>生成Personal access tokens 首先点击github头像在下拉栏里进入Setting-</p>
+<blockquote>
+<p>Developer Settings-&gt;Personal access tokens -&gt; tokens (classic)</p>
+</blockquote>
+</li>
+</ol>
+<p>选择Generate new token</p>
+<p>点击Generate token生成token，并先复制保存该token。(这个token只有显示一次，
+所以一定要复制保存)</p>
+<ol>
+<li>生成Actions secrets 接下来在源码repo中添加上面的personal access token：</li>
+</ol>
+<p>进入repo的Settings-&gt;Secrets and variable一栏，选择New repository secret</p>
+<h3 id="81-生成actions-secrets">8.1 生成Actions secrets</h3>
+<pre tabindex="0"><code></code></pre><p>名称自取，Secret复制上面生成的Personal access tokens</p>
+<p>在repo根目录新建嵌套的两个文件夹.github/workflows</p>
+<p>在workflows里新建一个后缀为.yml的配置文件，名字自取。</p>
+<h3 id="82-配置actions文件">8.2 配置actions文件</h3>
+<pre tabindex="0"><code></code></pre><p>写进去以下配置（从hugo官方文档修改而来）：</p>
+<p>yml文件中只需要改external_repository为自己的github page仓库，
+personal_token: ${{ secrets.XXX }} XXX改成上面生成Actions secrets步骤中取得名
+称。</p>
+<ol>
+<li>将BlogSource文件夹初始化为 Git 仓库，并设置默认主分支名为 main。这么做的
+原因是：</li>
+</ol>
+<pre tabindex="0"><code>GitHub 创建仓库时生成的默认主分支名是 main 用 git init 初始化 Git 仓库时创
+建的默认主分支名是 master 将 git init 创建的 master 修改成 main ，再推送给
+远端仓库，这样才不会报错。
+</code></pre><ol>
+<li>将 public 文件夹关联远程 GitHub Pages 仓库，使用 GitHub Pages 仓库的 SSH
+链接。</li>
+</ol>
+<pre tabindex="0"><code> 
+name: github pages # 名字自取
+on:
+push:
+branches:
+</code></pre><ul>
+<li>main <em>#</em> 这里的意思是当 <em>main</em> 分支发生 <em>push</em> 的时候，运行下面的 <em>jobs</em> ，这里先改为 <em>g</em></li>
+</ul>
+<pre tabindex="0"><code>jobs:
+deploy: # 任务名自取
+runs-on: ubuntu-latest # 在什么环境运行任务
+steps:
+</code></pre><ul>
+<li>uses: actions/checkout@v2 # 引用actions/checkout这个action，与所在的g
+with:
+submodules: <strong>true</strong> <em># Fetch Hugo themes (true OR recursive)</em> 获取 <em>submod</em>
+fetch-depth: 0 <em># Fetch all history for .GitInfo and .Lastmod</em></li>
+<li>name: Setup Hugo # 步骤名自取
+uses: peaceiris/actions-hugo@v2# hugo官方提供的action，用于在任务环境中
+with:
+hugo-version: &rsquo;latest&rsquo; <em>#</em> 获取最新版本的 _hugo</li>
+</ul>
+<h1 id="extended-true_">extended: true_</h1>
+<ul>
+<li>name: Build
+run: hugo &ndash;minify # 使用hugo构建静态网页</li>
+<li>name: Deploy
+uses: peaceiris/actions-gh-pages@v3# 一个自动发布github pages的action
+with:
+<em># github_token: ${{ secrets.GITHUB_TOKEN }}</em> 该项适用于发布到源码相同 <em>re</em>
+external_repository: krislinzhao/krislinzhao.github.io # 发布到哪
+personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }} # 发布到其他re
+publish_dir: ./public# 注意这里指的是要发布哪个文件夹的内容，而不是指发
+publish_branch: main # 发布到哪个branch</li>
+</ul>
+<h3 id="83推送代码到源码仓库">8.3推送代码到源码仓库</h3>
+<pre tabindex="0"><code>git init -b main
+</code></pre><h4 id="3-推送本地文件到远程仓库">3. 推送本地文件到远程仓库</h4>
+<p>推送完成之后到github仓库中的Actions中就可以看到runs运行成功，你的github
+pages仓库就会有hugo生成的html文件了，然后你就可以通过
+<a href="https://krislinzhao.github.io" target="_blank" rel="noopener noreffer ">https://krislinzhao.github.io</a> 访问你的博客了。</p>
+<pre tabindex="0"><code>如何用 GitHub Pages + Hugo 搭建个人博客
+Hugo使用Github Action自动部署博客到Github Pages
+Hugo - Quick Start
+git remote add origin ggit@github.com:krislinzhao/BlogSource.git
+git pull --rebase origin main
+git add.
+git commit -m &#34;...(修改的信息)&#34;
+git push origin main
+</code></pre><h2 id="9-reference">9. Reference</h2>
+<ul>
+<li><a href="https://cuttontail.blog/blog/create-a-wesite-using-github-pages-and-hugo/#9-%e5%8f%91%e5%b8%83%e5%86%85%e5%ae%b9" target="_blank" rel="noopener noreffer ">如何用 GitHub Pages + Hugo 搭建个人博客</a></li>
+<li><a href="https://tomial.github.io/posts/hugo%e4%bd%bf%e7%94%a8github-action%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2%e5%8d%9a%e5%ae%a2%e5%88%b0github-pages/" target="_blank" rel="noopener noreffer ">Hugo使用Github Action自动部署博客到Github Pages</a></li>
+<li><a href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener noreffer ">Hugo - Quick Start</a></li>
+</ul>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.136.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
+Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。">
+<meta name="author" content="Recording">
+<link rel="canonical" href="https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-&#43;-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://yyqeternal.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://yyqeternal.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://yyqeternal.github.io/img/Q.gif">
+<link rel="apple-touch-icon" href="https://yyqeternal.github.io/img/Q.gif">
+<link rel="mask-icon" href="https://yyqeternal.github.io/img/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-&#43;-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
+Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-&#43;-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><meta property="article:section" content="" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="如何用 GitHub Pages &#43; Hugo 搭建个人博客
+Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
+面的静态站点托管服务。
+Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。
+Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。
+
+创建 2 个 GitHub 仓库
+博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。
+将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓
+库 中。
+命名 博客源仓库 （whatever you want）
+勾选 Pricate ，设置为公开仓库。
+勾选添加 README 文件。
+
+我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-+-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "如何用 GitHub Pages + Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。\nGithub Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。\nHugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。\n创建 2 个 GitHub 仓库 博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图 片等。 GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文 件。 将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓 库 中。 命名 博客源仓库 （whatever you want） 勾选 Pricate ，设置为公开仓库。 勾选添加 README 文件。 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo 中，但这样其他人能获取文章的源文件。\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "如何用 GitHub Pages + Hugo 搭建个人博客 Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页 面的静态站点托管服务。\nGithub Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、 Python 或者 Ruby。\nHugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。\n创建 2 个 GitHub 仓库 博客源仓库 ：储存所有 Markdown 源文件（博客内容），和博客中用到的图 片等。 GitHub Pages 仓库 ：储存由 Hugo 从Markdown 文件生成的 HTML 文 件。 将在 博客源仓库 中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓 库 中。 命名 博客源仓库 （whatever you want） 勾选 Pricate ，设置为公开仓库。 勾选添加 README 文件。 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo 中，但这样其他人能获取文章的源文件。\n命名 GitHub Pages 仓库，这个仓库必须使用特殊的命名格式 ， 是自己的 GitHub 的用户名。 勾选 Public ，设置为公开仓库。 勾选添加 README 文件，这会设置 main 分支为仓库的默认主分支，这在后 面提交推送博客内容时很重要。 2.2 创建 GitHub Page 仓库 打开想要在本地储存项目的文件夹（比如我的项目的文件夹是 project ） 2. 克隆 博客源仓库 到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看： 3. 克隆博客源仓库到本地 cd project 1. 进入刚刚克隆下来的 博客源仓库 文件夹（比如：我的博客源仓库文件夹名是 BlogSource ，则 cd BlogSource ），在这个文件夹里用 Hugo 创建一个网站文件 夹。 用 Hugo 创建网站文件夹的命令是 hugo new site 网站名字。(比如，我的命名是 BlogSource ) 我是直接创建在博客源码仓库中的。 用 Hugo 创建的网站共有 7 个文件夹和 1 个文件，这些文件分别代表： archetypes ：存放用 hugo 命令新建的 Markdown 文件应用的 front matter 模版 content ：存放内容页面，比如「博客」、「读书笔记」等 layouts ：存放定义网站的样式，写在 layouts 文件下的样式会覆盖安装的主 题中的 layouts 文件同名的样式 static ：存放所有静态文件，如图片 data ：存放创建站点时 Hugo 使用的其他数据 public ：存放 Hugo 生成的静态网页 themes ：存放主题文件 config.toml ：网站配置文件 git clone git@github.com:krislinzhao/BlogSource.git 4. 使用 Hugo 创建网站 cd BlogSource hugo new site BlogSource 可以从 Hugo 社区提供的主题中选择一个喜欢的主题应用在自己的网站中。\n一般在你选择的 Hugo 主题的文档中，都会给出「如何安装这个主题」的命令， 比如我选用的 BlowFish 的文档中给出： 打开刚刚用 Hugo 创建的网站文件夹（我的是 BlogSource），在终端粘贴文档中 给出的安装命令。 这时可以看到在 themes 文件夹中，多出了刚刚安装的主题文件，代表主题安装成 功。 5. 安装和配置 Hugo 主题 5.1 选择 Hugo 主题 5.2 安装 Hugo 主题 一般安装的 Hugo 主题的文件结构中都会有 exampleSite 文件夹，也是你在选择 主题时参考的网站 demo。 把 exampleSite 的文件复制到站点目录，在此基础上进行基础配置 。 非常推荐这 么做，这样做能解决很多「为什么明明跟教程一步一步做下来，显示的结果却不一 样？」的疑惑。（这主要是因为不同的主题模版配置文件不同导致的。） 在把 exampleSite 文件复制到站点目录时，请根据 对应 文件夹进行复制文件 比如 exampleSite 下有 content , static 和 config.toml 3 个文件，就 找到你自己的站点跟目录下这对应的三个文件。在把对应目录中的内容分别复 制过去。 其中在复制 config.toml 的内容时要注意： 5.3 配置 Hugo 主题 baseURL 如果你没有在 GitHub Pages 中设置自定义域名，这里的域名应该填 https://.github.io/ （⚠ 注意：最后的 / 不要忘了加） themes 在 config.toml 中输入这行命令才能启用安装的主题，不过一般这行命令在 你复制 exampleSite 的配置文件信息时，主题作者已经写好了这行。 用 Hugo 创建一篇文章的命令是:\n用这个命令创建的 Markdown 文件会套用 archetypes 文件夹中的 front matter 模 版，在空白处用 Markdown 写入内容。\n其中， draft: true 代表这篇文章是一个草稿，Hugo 不会显示草稿，要在主页显示添 加的文章，可以设置 draft: false ；或者直接删掉这行。\n1. 在发布到网站前可以在本地预览网站或内容的效果，运行命令： 也可以在本地编辑 Markdown 文件时，通过 hugo server 来实时预览显示效 果。 hugo server 运行成功后，可以在 http://localhost:1313/ 中预览网站 使用Github Actions功能实现提交源码后自动发布。\n  baseURL = \"https://example.com/\" # 把 https://example.com/ 改成自己的域名 themes = \"你选择的主题名字\"。 # 这一行命令代表启用你安装的主题 6. 用 Hugo 创建文章 hugo new xxx.md 7. 本地调试和预览 hugo server 8. 发布内容 ↑ 生成Personal access tokens 首先点击github头像在下拉栏里进入Setting-\nDeveloper Settings-\u003ePersonal access tokens -\u003e tokens (classic)\n选择Generate new token\n点击Generate token生成token，并先复制保存该token。(这个token只有显示一次， 所以一定要复制保存)\n生成Actions secrets 接下来在源码repo中添加上面的personal access token： 进入repo的Settings-\u003eSecrets and variable一栏，选择New repository secret\n8.1 生成Actions secrets 名称自取，Secret复制上面生成的Personal access tokens\n在repo根目录新建嵌套的两个文件夹.github/workflows\n在workflows里新建一个后缀为.yml的配置文件，名字自取。\n8.2 配置actions文件 写进去以下配置（从hugo官方文档修改而来）：\nyml文件中只需要改external_repository为自己的github page仓库， personal_token: ${{ secrets.XXX }} XXX改成上面生成Actions secrets步骤中取得名 称。\n将BlogSource文件夹初始化为 Git 仓库，并设置默认主分支名为 main。这么做的 原因是： GitHub 创建仓库时生成的默认主分支名是 main 用 git init 初始化 Git 仓库时创 建的默认主分支名是 master 将 git init 创建的 master 修改成 main ，再推送给 远端仓库，这样才不会报错。 将 public 文件夹关联远程 GitHub Pages 仓库，使用 GitHub Pages 仓库的 SSH 链接。   name: github pages # 名字自取 on: push: branches: main # 这里的意思是当 main 分支发生 push 的时候，运行下面的 jobs ，这里先改为 g jobs: deploy: # 任务名自取 runs-on: ubuntu-latest # 在什么环境运行任务 steps: uses: actions/checkout@v2 # 引用actions/checkout这个action，与所在的g with: submodules: true # Fetch Hugo themes (true OR recursive) 获取 submod fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod name: Setup Hugo # 步骤名自取 uses: peaceiris/actions-hugo@v2# hugo官方提供的action，用于在任务环境中 with: hugo-version: ’latest’ # 获取最新版本的 _hugo extended: true_ name: Build run: hugo –minify # 使用hugo构建静态网页 name: Deploy uses: peaceiris/actions-gh-pages@v3# 一个自动发布github pages的action with: # github_token: ${{ secrets.GITHUB_TOKEN }} 该项适用于发布到源码相同 re external_repository: krislinzhao/krislinzhao.github.io # 发布到哪 personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }} # 发布到其他re publish_dir: ./public# 注意这里指的是要发布哪个文件夹的内容，而不是指发 publish_branch: main # 发布到哪个branch 8.3推送代码到源码仓库 git init -b main 3. 推送本地文件到远程仓库 推送完成之后到github仓库中的Actions中就可以看到runs运行成功，你的github pages仓库就会有hugo生成的html文件了，然后你就可以通过 https://krislinzhao.github.io 访问你的博客了。\n如何用 GitHub Pages + Hugo 搭建个人博客 Hugo使用Github Action自动部署博客到Github Pages Hugo - Quick Start git remote add origin ggit@github.com:krislinzhao/BlogSource.git git pull --rebase origin main git add. git commit -m \"...(修改的信息)\" git push origin main 9. Reference 如何用 GitHub Pages + Hugo 搭建个人博客 Hugo使用Github Action自动部署博客到Github Pages Hugo - Quick Start ",
+  "wordCount" : "2724",
+  "inLanguage": "zh",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Recording"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yyqeternal.github.io/%E5%A6%82%E4%BD%95%E7%94%A8-github-pages-+-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yyqeternal.github.io/img/Q.gif"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://yyqeternal.github.io/" accesskey="h" title="Recording (Alt + H)">
+                <img src="https://yyqeternal.github.io/img/garfield-coffee.gif" alt="" aria-label="logo"
+                    height="35">Recording</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://yyqeternal.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/" title="🏠 主页">
+                    <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/post" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/tags" title="🧩 标签">
+                    <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/archives/" title="⏱️ 时间轴">
+                    <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/about" title="🙋🏻‍♂️ 关于">
+                    <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yyqeternal.github.io/%E9%A6%96%E9%A1%B5/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://yyqeternal.github.io/">主页</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">6 分钟&nbsp;·&nbsp;Recording
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#%e5%a6%82%e4%bd%95%e7%94%a8-github-pages--hugo-%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2httpskrislinzhaogithubiodocscreate-a-wesite-using-github-pages-and-hugo1-%e6%a6%82%e5%bf%b5%e6%90%ad%e5%bb%ba%e6%80%9d%e8%b7%af%e5%92%8c%e8%bf%90%e8%a1%8c%e7%8e%af%e5%a2%83" aria-label="如何用 GitHub Pages &#43; Hugo 搭建个人博客">如何用 GitHub Pages + Hugo 搭建个人博客</a><ul>
+                        
+                <li>
+                    <a href="#22-%e5%88%9b%e5%bb%ba-github-page-%e4%bb%93%e5%ba%93" aria-label="2.2 创建 GitHub Page 仓库">2.2 创建 GitHub Page 仓库</a><ul>
+                        
+                <li>
+                    <a href="#2-%e5%85%8b%e9%9a%86-%e5%8d%9a%e5%ae%a2%e6%ba%90%e4%bb%93%e5%ba%93-%e5%88%b0%e9%a1%b9%e7%9b%ae%e6%96%87%e4%bb%b6%e5%a4%b9%e5%85%8b%e9%9a%86%e6%97%b6%e4%bd%bf%e7%94%a8%e7%9a%84-https-%e4%bb%93%e5%ba%93%e9%93%be%e6%8e%a5%e5%9c%a8%e8%bf%99%e9%87%8c%e6%9f%a5%e7%9c%8b" aria-label="2. 克隆 博客源仓库 到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看：">2. 克隆 博客源仓库 到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看：</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e5%85%8b%e9%9a%86%e5%8d%9a%e5%ae%a2%e6%ba%90%e4%bb%93%e5%ba%93%e5%88%b0%e6%9c%ac%e5%9c%b0" aria-label="3. 克隆博客源仓库到本地">3. 克隆博客源仓库到本地</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#1-%e8%bf%9b%e5%85%a5%e5%88%9a%e5%88%9a%e5%85%8b%e9%9a%86%e4%b8%8b%e6%9d%a5%e7%9a%84-%e5%8d%9a%e5%ae%a2%e6%ba%90%e4%bb%93%e5%ba%93-%e6%96%87%e4%bb%b6%e5%a4%b9%e6%af%94%e5%a6%82%e6%88%91%e7%9a%84%e5%8d%9a%e5%ae%a2%e6%ba%90%e4%bb%93%e5%ba%93%e6%96%87%e4%bb%b6%e5%a4%b9%e5%90%8d%e6%98%af" aria-label="1. 进入刚刚克隆下来的 博客源仓库 文件夹（比如：我的博客源仓库文件夹名是">1. 进入刚刚克隆下来的 博客源仓库 文件夹（比如：我的博客源仓库文件夹名是</a></li>
+                <li>
+                    <a href="#%e6%88%91%e6%98%af%e7%9b%b4%e6%8e%a5%e5%88%9b%e5%bb%ba%e5%9c%a8%e5%8d%9a%e5%ae%a2%e6%ba%90%e7%a0%81%e4%bb%93%e5%ba%93%e4%b8%ad%e7%9a%84" aria-label="我是直接创建在博客源码仓库中的。">我是直接创建在博客源码仓库中的。</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#4-%e4%bd%bf%e7%94%a8-hugo-%e5%88%9b%e5%bb%ba%e7%bd%91%e7%ab%99" aria-label="4. 使用 Hugo 创建网站">4. 使用 Hugo 创建网站</a></li>
+                <li>
+                    <a href="#5-%e5%ae%89%e8%a3%85%e5%92%8c%e9%85%8d%e7%bd%ae-hugo-%e4%b8%bb%e9%a2%98" aria-label="5. 安装和配置 Hugo 主题">5. 安装和配置 Hugo 主题</a><ul>
+                        
+                <li>
+                    <a href="#51-%e9%80%89%e6%8b%a9-hugo-%e4%b8%bb%e9%a2%98" aria-label="5.1 选择 Hugo 主题">5.1 选择 Hugo 主题</a></li>
+                <li>
+                    <a href="#52-%e5%ae%89%e8%a3%85-hugo-%e4%b8%bb%e9%a2%98" aria-label="5.2 安装 Hugo 主题">5.2 安装 Hugo 主题</a></li>
+                <li>
+                    <a href="#53-%e9%85%8d%e7%bd%ae-hugo-%e4%b8%bb%e9%a2%98" aria-label="5.3 配置 Hugo 主题">5.3 配置 Hugo 主题</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9c%a8%e5%8f%91%e5%b8%83%e5%88%b0%e7%bd%91%e7%ab%99%e5%89%8d%e5%8f%af%e4%bb%a5%e5%9c%a8%e6%9c%ac%e5%9c%b0%e9%a2%84%e8%a7%88%e7%bd%91%e7%ab%99%e6%88%96%e5%86%85%e5%ae%b9%e7%9a%84%e6%95%88%e6%9e%9c%e8%bf%90%e8%a1%8c%e5%91%bd%e4%bb%a4" aria-label="1. 在发布到网站前可以在本地预览网站或内容的效果，运行命令：">1. 在发布到网站前可以在本地预览网站或内容的效果，运行命令：</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#6-%e7%94%a8-hugo-%e5%88%9b%e5%bb%ba%e6%96%87%e7%ab%a0" aria-label="6. 用 Hugo 创建文章">6. 用 Hugo 创建文章</a></li>
+                <li>
+                    <a href="#7-%e6%9c%ac%e5%9c%b0%e8%b0%83%e8%af%95%e5%92%8c%e9%a2%84%e8%a7%88" aria-label="7. 本地调试和预览">7. 本地调试和预览</a></li>
+                <li>
+                    <a href="#8-%e5%8f%91%e5%b8%83%e5%86%85%e5%ae%b9" aria-label="8. 发布内容">8. 发布内容</a><ul>
+                        
+                <li>
+                    <a href="#heading" aria-label="↑">↑</a></li>
+                <li>
+                    <a href="#81-%e7%94%9f%e6%88%90actions-secrets" aria-label="8.1 生成Actions secrets">8.1 生成Actions secrets</a></li>
+                <li>
+                    <a href="#82-%e9%85%8d%e7%bd%aeactions%e6%96%87%e4%bb%b6" aria-label="8.2 配置actions文件">8.2 配置actions文件</a></li></ul>
+                </li></ul>
+                    
+                <li>
+                    <a href="#extended-true_" aria-label="extended: true_">extended: true_</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#83%e6%8e%a8%e9%80%81%e4%bb%a3%e7%a0%81%e5%88%b0%e6%ba%90%e7%a0%81%e4%bb%93%e5%ba%93" aria-label="8.3推送代码到源码仓库">8.3推送代码到源码仓库</a><ul>
+                        
+                <li>
+                    <a href="#3-%e6%8e%a8%e9%80%81%e6%9c%ac%e5%9c%b0%e6%96%87%e4%bb%b6%e5%88%b0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93" aria-label="3. 推送本地文件到远程仓库">3. 推送本地文件到远程仓库</a></li></ul>
+                </li></ul>
+                    
+                <li>
+                    <a href="#9-reference" aria-label="9. Reference">9. Reference</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+
+  
+  <div class="post-content"><h2 id="如何用-github-pages--hugo-搭建个人博客httpskrislinzhaogithubiodocscreate-a-wesite-using-github-pages-and-hugo1-概念搭建思路和运行环境"><a href="https://krislinzhao.github.io/docs/create-a-wesite-using-github-pages-and-hugo/#1-%E6%A6%82%E5%BF%B5%E6%90%AD%E5%BB%BA%E6%80%9D%E8%B7%AF%E5%92%8C%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">如何用 GitHub Pages + Hugo 搭建个人博客</a><a hidden class="anchor" aria-hidden="true" href="#如何用-github-pages--hugo-搭建个人博客httpskrislinzhaogithubiodocscreate-a-wesite-using-github-pages-and-hugo1-概念搭建思路和运行环境">#</a></h2>
+<p>Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页
+面的静态站点托管服务。</p>
+<p>Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、
+Python 或者 Ruby。</p>
+<p>Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把
+Markdown 文件转化成 HTML 文件。</p>
+<ol>
+<li>创建 2 个 GitHub 仓库
+<strong>博客源仓库</strong> ：储存所有 Markdown 源文件（博客内容），和博客中用到的图
+片等。
+<strong>GitHub Pages 仓库</strong> ：储存由 Hugo 从Markdown 文件生成的 HTML 文
+件。</li>
+<li>将在 <strong>博客源仓库</strong> 中 Hugo 生成的静态 HTML 文件部署到远端 <strong>GitHub Pages 仓</strong>
+<strong>库</strong> 中。</li>
+<li>命名 <strong>博客源仓库</strong> （whatever you want）</li>
+<li>勾选 <strong>Pricate</strong> ，设置为公开仓库。</li>
+<li>勾选添加 <strong>README</strong> 文件。</li>
+</ol>
+<p>我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo
+中，但这样其他人能获取文章的源文件。</p>
+<ol>
+<li>命名 <strong>GitHub Pages</strong> 仓库，这个仓库必须使用特殊的命名格式
+<strong>&lt;username.github.io&gt;</strong> ， 是自己的 GitHub 的用户名。</li>
+<li>勾选 <strong>Public</strong> ，设置为公开仓库。</li>
+<li>勾选添加 <strong>README</strong> 文件，这会设置 <strong>main</strong> 分支为仓库的默认主分支，这在后
+面提交推送博客内容时很重要。</li>
+</ol>
+<h3 id="22-创建-github-page-仓库">2.2 创建 GitHub Page 仓库<a hidden class="anchor" aria-hidden="true" href="#22-创建-github-page-仓库">#</a></h3>
+<ol>
+<li>打开想要在本地储存项目的文件夹（比如我的项目的文件夹是 <strong>project</strong> ）</li>
+</ol>
+<h4 id="2-克隆-博客源仓库-到项目文件夹克隆时使用的-https-仓库链接在这里查看">2. 克隆 博客源仓库 到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看：<a hidden class="anchor" aria-hidden="true" href="#2-克隆-博客源仓库-到项目文件夹克隆时使用的-https-仓库链接在这里查看">#</a></h4>
+<h2 id="3-克隆博客源仓库到本地">3. 克隆博客源仓库到本地<a hidden class="anchor" aria-hidden="true" href="#3-克隆博客源仓库到本地">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd project
+</span></span></code></pre></div><h4 id="1-进入刚刚克隆下来的-博客源仓库-文件夹比如我的博客源仓库文件夹名是">1. 进入刚刚克隆下来的 博客源仓库 文件夹（比如：我的博客源仓库文件夹名是<a hidden class="anchor" aria-hidden="true" href="#1-进入刚刚克隆下来的-博客源仓库-文件夹比如我的博客源仓库文件夹名是">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>BlogSource ，则 cd BlogSource ），在这个文件夹里用 Hugo 创建一个网站文件
+</span></span><span style="display:flex;"><span>夹。
+</span></span></code></pre></div><ol>
+<li>用 Hugo 创建网站文件夹的命令是 <strong>hugo new site</strong> 网站名字。(比如，我的命名是
+<strong>BlogSource</strong> )</li>
+</ol>
+<h4 id="我是直接创建在博客源码仓库中的">我是直接创建在博客源码仓库中的。<a hidden class="anchor" aria-hidden="true" href="#我是直接创建在博客源码仓库中的">#</a></h4>
+<ol>
+<li>用 Hugo 创建的网站共有 7 个文件夹和 1 个文件，这些文件分别代表：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>archetypes ：存放用 hugo 命令新建的 Markdown 文件应用的 front
+</span></span><span style="display:flex;"><span>matter 模版
+</span></span><span style="display:flex;"><span>content ：存放内容页面，比如「博客」、「读书笔记」等
+</span></span><span style="display:flex;"><span>layouts ：存放定义网站的样式，写在 layouts 文件下的样式会覆盖安装的主
+</span></span><span style="display:flex;"><span>题中的 layouts 文件同名的样式
+</span></span><span style="display:flex;"><span>static ：存放所有静态文件，如图片
+</span></span><span style="display:flex;"><span>data ：存放创建站点时 Hugo 使用的其他数据
+</span></span><span style="display:flex;"><span>public ：存放 Hugo 生成的静态网页
+</span></span><span style="display:flex;"><span>themes ：存放主题文件
+</span></span><span style="display:flex;"><span>config.toml ：网站配置文件
+</span></span><span style="display:flex;"><span>git clone git@github.com:krislinzhao/BlogSource.git
+</span></span></code></pre></div><h2 id="4-使用-hugo-创建网站">4. 使用 Hugo 创建网站<a hidden class="anchor" aria-hidden="true" href="#4-使用-hugo-创建网站">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd BlogSource
+</span></span><span style="display:flex;"><span>hugo new site BlogSource
+</span></span></code></pre></div><p>可以从 Hugo 社区提供的主题中选择一个喜欢的主题应用在自己的网站中。</p>
+<ol>
+<li>一般在你选择的 Hugo 主题的文档中，都会给出「如何安装这个主题」的命令，
+比如我选用的 <strong>BlowFish</strong> 的文档中给出：</li>
+<li>打开刚刚用 Hugo 创建的网站文件夹（我的是 BlogSource），在终端粘贴文档中
+给出的安装命令。</li>
+<li>这时可以看到在 <strong>themes</strong> 文件夹中，多出了刚刚安装的主题文件，代表主题安装成
+功。</li>
+</ol>
+<h2 id="5-安装和配置-hugo-主题">5. 安装和配置 Hugo 主题<a hidden class="anchor" aria-hidden="true" href="#5-安装和配置-hugo-主题">#</a></h2>
+<h3 id="51-选择-hugo-主题">5.1 选择 Hugo 主题<a hidden class="anchor" aria-hidden="true" href="#51-选择-hugo-主题">#</a></h3>
+<h3 id="52-安装-hugo-主题">5.2 安装 Hugo 主题<a hidden class="anchor" aria-hidden="true" href="#52-安装-hugo-主题">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></div><ol>
+<li>一般安装的 Hugo 主题的文件结构中都会有 <strong>exampleSite</strong> 文件夹，也是你在选择
+主题时参考的网站 demo。</li>
+<li><strong>把 exampleSite 的文件复制到站点目录，在此基础上进行基础配置</strong> 。 非常推荐这
+么做，这样做能解决很多「为什么明明跟教程一步一步做下来，显示的结果却不一
+样？」的疑惑。（这主要是因为不同的主题模版配置文件不同导致的。）</li>
+<li>在把 <strong>exampleSite</strong> 文件复制到站点目录时，请根据 <strong>对应</strong> 文件夹进行复制文件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>比如 exampleSite 下有 content , static 和 config.toml 3 个文件，就
+</span></span><span style="display:flex;"><span>找到你自己的站点跟目录下这对应的三个文件。在把对应目录中的内容分别复
+</span></span><span style="display:flex;"><span>制过去。
+</span></span></code></pre></div><ol>
+<li>其中在复制 <strong>config.toml</strong> 的内容时要注意：</li>
+</ol>
+<h3 id="53-配置-hugo-主题">5.3 配置 Hugo 主题<a hidden class="anchor" aria-hidden="true" href="#53-配置-hugo-主题">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>baseURL
+</span></span><span style="display:flex;"><span>如果你没有在 GitHub Pages 中设置自定义域名，这里的域名应该填
+</span></span><span style="display:flex;"><span>https://&lt;username&gt;.github.io/ （⚠ 注意：最后的 / 不要忘了加）
+</span></span><span style="display:flex;"><span>themes
+</span></span><span style="display:flex;"><span>在 config.toml 中输入这行命令才能启用安装的主题，不过一般这行命令在
+</span></span><span style="display:flex;"><span>你复制 exampleSite 的配置文件信息时，主题作者已经写好了这行。
+</span></span></code></pre></div><p>用 Hugo 创建一篇文章的命令是:</p>
+<p>用这个命令创建的 Markdown 文件会套用 <strong>archetypes</strong> 文件夹中的 front matter 模
+版，在空白处用 Markdown 写入内容。</p>
+<p>其中， <strong>draft: true</strong> 代表这篇文章是一个草稿，Hugo 不会显示草稿，要在主页显示添
+加的文章，可以设置 <strong>draft: false</strong> ；或者直接删掉这行。</p>
+<h4 id="1-在发布到网站前可以在本地预览网站或内容的效果运行命令">1. 在发布到网站前可以在本地预览网站或内容的效果，运行命令：<a hidden class="anchor" aria-hidden="true" href="#1-在发布到网站前可以在本地预览网站或内容的效果运行命令">#</a></h4>
+<ol>
+<li>也可以在本地编辑 Markdown 文件时，通过 <strong>hugo server</strong> 来实时预览显示效
+果。</li>
+<li><strong>hugo server</strong> 运行成功后，可以在 <strong>http://localhost:1313/</strong> 中预览网站</li>
+</ol>
+<p>使用Github Actions功能实现提交源码后自动发布。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>baseURL = &#34;https://example.com/&#34; # 把 https://example.com/ 改成自己的域名
+</span></span><span style="display:flex;"><span>themes = &#34;你选择的主题名字&#34;。 # 这一行命令代表启用你安装的主题
+</span></span></code></pre></div><h2 id="6-用-hugo-创建文章">6. 用 Hugo 创建文章<a hidden class="anchor" aria-hidden="true" href="#6-用-hugo-创建文章">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo new xxx.md
+</span></span></code></pre></div><h2 id="7-本地调试和预览">7. 本地调试和预览<a hidden class="anchor" aria-hidden="true" href="#7-本地调试和预览">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><h2 id="8-发布内容">8. 发布内容<a hidden class="anchor" aria-hidden="true" href="#8-发布内容">#</a></h2>
+<h3 id="heading">↑<a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></div><ol>
+<li>
+<p>生成Personal access tokens 首先点击github头像在下拉栏里进入Setting-</p>
+<blockquote>
+<p>Developer Settings-&gt;Personal access tokens -&gt; tokens (classic)</p>
+</blockquote>
+</li>
+</ol>
+<p>选择Generate new token</p>
+<p>点击Generate token生成token，并先复制保存该token。(这个token只有显示一次，
+所以一定要复制保存)</p>
+<ol>
+<li>生成Actions secrets 接下来在源码repo中添加上面的personal access token：</li>
+</ol>
+<p>进入repo的Settings-&gt;Secrets and variable一栏，选择New repository secret</p>
+<h3 id="81-生成actions-secrets">8.1 生成Actions secrets<a hidden class="anchor" aria-hidden="true" href="#81-生成actions-secrets">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></div><p>名称自取，Secret复制上面生成的Personal access tokens</p>
+<p>在repo根目录新建嵌套的两个文件夹.github/workflows</p>
+<p>在workflows里新建一个后缀为.yml的配置文件，名字自取。</p>
+<h3 id="82-配置actions文件">8.2 配置actions文件<a hidden class="anchor" aria-hidden="true" href="#82-配置actions文件">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></div><p>写进去以下配置（从hugo官方文档修改而来）：</p>
+<p>yml文件中只需要改external_repository为自己的github page仓库，
+personal_token: ${{ secrets.XXX }} XXX改成上面生成Actions secrets步骤中取得名
+称。</p>
+<ol>
+<li>将BlogSource文件夹初始化为 Git 仓库，并设置默认主分支名为 main。这么做的
+原因是：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>GitHub 创建仓库时生成的默认主分支名是 main 用 git init 初始化 Git 仓库时创
+</span></span><span style="display:flex;"><span>建的默认主分支名是 master 将 git init 创建的 master 修改成 main ，再推送给
+</span></span><span style="display:flex;"><span>远端仓库，这样才不会报错。
+</span></span></code></pre></div><ol>
+<li>将 public 文件夹关联远程 GitHub Pages 仓库，使用 GitHub Pages 仓库的 SSH
+链接。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>name: github pages # 名字自取
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>push:
+</span></span><span style="display:flex;"><span>branches:
+</span></span></code></pre></div><ul>
+<li>main <em>#</em> 这里的意思是当 <em>main</em> 分支发生 <em>push</em> 的时候，运行下面的 <em>jobs</em> ，这里先改为 <em>g</em></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>deploy: # 任务名自取
+</span></span><span style="display:flex;"><span>runs-on: ubuntu-latest # 在什么环境运行任务
+</span></span><span style="display:flex;"><span>steps:
+</span></span></code></pre></div><ul>
+<li>uses: actions/checkout@v2 # 引用actions/checkout这个action，与所在的g
+with:
+submodules: <strong>true</strong> <em># Fetch Hugo themes (true OR recursive)</em> 获取 <em>submod</em>
+fetch-depth: 0 <em># Fetch all history for .GitInfo and .Lastmod</em></li>
+<li>name: Setup Hugo # 步骤名自取
+uses: peaceiris/actions-hugo@v2# hugo官方提供的action，用于在任务环境中
+with:
+hugo-version: &rsquo;latest&rsquo; <em>#</em> 获取最新版本的 _hugo</li>
+</ul>
+<h1 id="extended-true_">extended: true_<a hidden class="anchor" aria-hidden="true" href="#extended-true_">#</a></h1>
+<ul>
+<li>name: Build
+run: hugo &ndash;minify # 使用hugo构建静态网页</li>
+<li>name: Deploy
+uses: peaceiris/actions-gh-pages@v3# 一个自动发布github pages的action
+with:
+<em># github_token: ${{ secrets.GITHUB_TOKEN }}</em> 该项适用于发布到源码相同 <em>re</em>
+external_repository: krislinzhao/krislinzhao.github.io # 发布到哪
+personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }} # 发布到其他re
+publish_dir: ./public# 注意这里指的是要发布哪个文件夹的内容，而不是指发
+publish_branch: main # 发布到哪个branch</li>
+</ul>
+<h3 id="83推送代码到源码仓库">8.3推送代码到源码仓库<a hidden class="anchor" aria-hidden="true" href="#83推送代码到源码仓库">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git init -b main
+</span></span></code></pre></div><h4 id="3-推送本地文件到远程仓库">3. 推送本地文件到远程仓库<a hidden class="anchor" aria-hidden="true" href="#3-推送本地文件到远程仓库">#</a></h4>
+<p>推送完成之后到github仓库中的Actions中就可以看到runs运行成功，你的github
+pages仓库就会有hugo生成的html文件了，然后你就可以通过
+<a href="https://krislinzhao.github.io">https://krislinzhao.github.io</a> 访问你的博客了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>如何用 GitHub Pages + Hugo 搭建个人博客
+</span></span><span style="display:flex;"><span>Hugo使用Github Action自动部署博客到Github Pages
+</span></span><span style="display:flex;"><span>Hugo - Quick Start
+</span></span><span style="display:flex;"><span>git remote add origin ggit@github.com:krislinzhao/BlogSource.git
+</span></span><span style="display:flex;"><span>git pull --rebase origin main
+</span></span><span style="display:flex;"><span>git add.
+</span></span><span style="display:flex;"><span>git commit -m &#34;...(修改的信息)&#34;
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><h2 id="9-reference">9. Reference<a hidden class="anchor" aria-hidden="true" href="#9-reference">#</a></h2>
+<ul>
+<li><a href="https://cuttontail.blog/blog/create-a-wesite-using-github-pages-and-hugo/#9-%E5%8F%91%E5%B8%83%E5%86%85%E5%AE%B9">如何用 GitHub Pages + Hugo 搭建个人博客</a></li>
+<li><a href="https://tomial.github.io/posts/hugo%E4%BD%BF%E7%94%A8github-action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/">Hugo使用Github Action自动部署博客到Github Pages</a></li>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo - Quick Start</a></li>
+</ul>
+
+
+  </div>
+  <div class="post-password">
+    
+</div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=https%3a%2f%2fyyqeternal.github.io%2f%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8-github-pages-%2b-hugo-%25E6%2590%25AD%25E5%25BB%25BA%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Sulv</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
