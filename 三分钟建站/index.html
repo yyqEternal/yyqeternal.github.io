@@ -246,41 +246,41 @@ Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。�
   
   <div class="post-content"><p>如何用 GitHub Pages + Hugo 搭建个人博客</p>
 <p>1.1 什么是 GitHub Pages？</p>
-<h1 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h1>
+<h1></h1>
 <p>Github Pages 是一个可以从你的 Github 源码仓库中直接生成个人、组织或者项目页面的静态站点托管服务。</p>
 <p>Github Pages 只能托管静态站点，不能运行服务器端源码，比如 PHP、Java、Python 或者 Ruby。</p>
 <p>1.2 什么是 Hugo？</p>
-<h1 id="heading-1"><a hidden class="anchor" aria-hidden="true" href="#heading-1">#</a></h1>
+<h1></h1>
 <p>Hugo 是用 Go 语言写的静态网站生成器（Static Site Generator）。可以把 Markdown 文件转化成 HTML 文件。</p>
 <p>1.3 网站搭建思路</p>
-<h1 id="heading-2"><a hidden class="anchor" aria-hidden="true" href="#heading-2">#</a></h1>
+<h1></h1>
 <p>创建 2 个 GitHub 仓库
 博客源仓库：储存所有 Markdown 源文件（博客内容），和博客中用到的图片等。
 GitHub Pages 仓库：储存由 Hugo 从Markdown 文件生成的 HTML 文件。
 将在博客源仓库中 Hugo 生成的静态 HTML 文件部署到远端 GitHub Pages 仓库中。
 2. 创建 GitHub 仓库</p>
-<h1 id="heading-3"><a hidden class="anchor" aria-hidden="true" href="#heading-3">#</a></h1>
+<h1></h1>
 <p>2.1 创建博客源仓库</p>
-<h1 id="heading-4"><a hidden class="anchor" aria-hidden="true" href="#heading-4">#</a></h1>
+<h1></h1>
 <p>命名博客源仓库（whatever you want）
 勾选 Pricate，设置为公开仓库。
 勾选添加 README 文件。
 我将博客源码分开存放到一个private repo里，也可以将源码放到github pages repo中，但这样其他人能获取文章的源文件。</p>
 <p>2.2 创建 GitHub Page 仓库</p>
-<h1 id="heading-5"><a hidden class="anchor" aria-hidden="true" href="#heading-5">#</a></h1>
+<h1></h1>
 <p>命名 GitHub Pages 仓库，这个仓库必须使用特殊的命名格式 &lt;username.github.io&gt;， <username> 是自己的 GitHub 的用户名。
 勾选 Public，设置为公开仓库。
 勾选添加 README 文件，这会设置 main 分支为仓库的默认主分支，这在后面提交推送博客内容时很重要。</p>
 <ol start="3">
 <li>克隆博客源仓库到本地</li>
 </ol>
-<h1 id="heading-6"><a hidden class="anchor" aria-hidden="true" href="#heading-6">#</a></h1>
+<h1></h1>
 <p>打开想要在本地储存项目的文件夹（比如我的项目的文件夹是 project ）</p>
 <p>cd project
 克隆博客源仓库到项目文件夹，克隆时使用的 HTTPS 仓库链接在这里查看：</p>
 <p>git clone <a href="mailto:git@github.com">git@github.com</a>:krislinzhao/BlogSource.git
 4. 使用 Hugo 创建网站</p>
-<h1 id="heading-7"><a hidden class="anchor" aria-hidden="true" href="#heading-7">#</a></h1>
+<h1></h1>
 <p>进入刚刚克隆下来的博客源仓库文件夹（比如：我的博客源仓库文件夹名是 BlogSource，则cd BlogSource ），在这个文件夹里用 Hugo 创建一个网站文件夹。</p>
 <p>用 Hugo 创建网站文件夹的命令是 hugo new site 网站名字。(比如，我的命名是 BlogSource)</p>
 <p>cd BlogSource
@@ -296,17 +296,17 @@ public：存放 Hugo 生成的静态网页
 themes：存放主题文件
 config.toml：网站配置文件
 5. 安装和配置 Hugo 主题</p>
-<h1 id="heading-8"><a hidden class="anchor" aria-hidden="true" href="#heading-8">#</a></h1>
+<h1></h1>
 <p>5.1 选择 Hugo 主题</p>
-<h1 id="heading-9"><a hidden class="anchor" aria-hidden="true" href="#heading-9">#</a></h1>
+<h1></h1>
 <p>可以从 Hugo 社区提供的主题中选择一个喜欢的主题应用在自己的网站中。</p>
 <p>5.2 安装 Hugo 主题</p>
-<h1 id="heading-10"><a hidden class="anchor" aria-hidden="true" href="#heading-10">#</a></h1>
+<h1></h1>
 <p>一般在你选择的 Hugo 主题的文档中，都会给出「如何安装这个主题」的命令，比如我选用的 BlowFish 的文档中给出：</p>
 <p>打开刚刚用 Hugo 创建的网站文件夹（我的是 BlogSource），在终端粘贴文档中给出的安装命令。</p>
 <p>这时可以看到在themes文件夹中，多出了刚刚安装的主题文件，代表主题安装成功。</p>
 <p>5.3 配置 Hugo 主题</p>
-<h1 id="heading-11"><a hidden class="anchor" aria-hidden="true" href="#heading-11">#</a></h1>
+<h1></h1>
 <p>一般安装的 Hugo 主题的文件结构中都会有 exampleSite 文件夹，也是你在选择主题时参考的网站 demo。</p>
 <p>把 exampleSite 的文件复制到站点目录，在此基础上进行基础配置。 非常推荐这么做，这样做能解决很多「为什么明明跟教程一步一步做下来，显示的结果却不一样？」的疑惑。（这主要是因为不同的主题模版配置文件不同导致的。）</p>
 <p>在把exampleSite文件复制到站点目录时，请根据对应文件夹进行复制文件</p>
@@ -319,7 +319,7 @@ themes
 themes = &ldquo;你选择的主题名字&rdquo;。 #这一行命令代表启用你安装的主题
 在 config.toml 中输入这行命令才能启用安装的主题，不过一般这行命令在你复制 exampleSite 的配置文件信息时，主题作者已经写好了这行。
 6. 用 Hugo 创建文章</p>
-<h1 id="heading-12"><a hidden class="anchor" aria-hidden="true" href="#heading-12">#</a></h1>
+<h1></h1>
 <p>用 Hugo 创建一篇文章的命令是:</p>
 <p>hugo new xxx.md
 用这个命令创建的 Markdown 文件会套用 archetypes 文件夹中的 front matter 模版，在空白处用 Markdown 写入内容。</p>
@@ -327,7 +327,7 @@ themes = &ldquo;你选择的主题名字&rdquo;。 #这一行命令代表启用�
 <ol start="7">
 <li>本地调试和预览</li>
 </ol>
-<h1 id="heading-13"><a hidden class="anchor" aria-hidden="true" href="#heading-13">#</a></h1>
+<h1></h1>
 <p>在发布到网站前可以在本地预览网站或内容的效果，运行命令：
 hugo server
 也可以在本地编辑 Markdown 文件时，通过 hugo server 来实时预览显示效果。
@@ -335,10 +335,10 @@ hugo server  运行成功后，可以在 http://localhost:1313/ 中预览网站<
 <ol start="8">
 <li>发布内容</li>
 </ol>
-<h1 id="heading-14"><a hidden class="anchor" aria-hidden="true" href="#heading-14">#</a></h1>
+<h1></h1>
 <p>使用Github Actions功能实现提交源码后自动发布。</p>
 <p>8.1 生成Actions secrets</p>
-<h1 id="heading-15"><a hidden class="anchor" aria-hidden="true" href="#heading-15">#</a></h1>
+<h1></h1>
 <p>生成Personal access tokens 首先点击github头像在下拉栏里进入Setting-&gt;Developer Settings-&gt;Personal access tokens -&gt; tokens (classic)</p>
 <p>选择Generate new token</p>
 <p>点击Generate token生成token，并先复制保存该token。(这个token只有显示一次，所以一定要复制保存)
@@ -346,7 +346,7 @@ hugo server  运行成功后，可以在 http://localhost:1313/ 中预览网站<
 进入repo的Settings-&gt;Secrets and variable一栏，选择New repository secret</p>
 <p>名称自取，Secret复制上面生成的Personal access tokens</p>
 <p>8.2 配置actions文件</p>
-<h1 id="heading-16"><a hidden class="anchor" aria-hidden="true" href="#heading-16">#</a></h1>
+<h1></h1>
 <p>在repo根目录新建嵌套的两个文件夹.github/workflows</p>
 <p>在workflows里新建一个后缀为.yml的配置文件，名字自取。</p>
 <p>写进去以下配置（从hugo官方文档修改而来）：</p>
@@ -383,7 +383,7 @@ fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod</p>
 </code></pre>
 <p>yml文件中只需要改external_repository为自己的github page仓库，personal_token: ${{ secrets.XXX }} XXX改成上面生成Actions secrets步骤中取得名称。</p>
 <p>8.3推送代码到源码仓库</p>
-<h1 id="heading-17"><a hidden class="anchor" aria-hidden="true" href="#heading-17">#</a></h1>
+<h1></h1>
 <p>将BlogSource文件夹初始化为 Git 仓库，并设置默认主分支名为 main。这么做的原因是：</p>
 <p>GitHub 创建仓库时生成的默认主分支名是 main 用 git init 初始化 Git 仓库时创建的默认主分支名是 master 将 git init 创建的 master 修改成 main ，再推送给远端仓库，这样才不会报错。</p>
 <p>git init -b main
@@ -398,7 +398,7 @@ git push origin main
 <ol start="9">
 <li>Reference</li>
 </ol>
-<h1 id="heading-18"><a hidden class="anchor" aria-hidden="true" href="#heading-18">#</a></h1>
+<h1></h1>
 <p>如何用 GitHub Pages + Hugo 搭建个人博客
 Hugo使用Github Action自动部署博客到Github Pages
 Hugo - Quick Start- <a href="#"></a></p>
